@@ -18,7 +18,7 @@ def main():
     
     uploaded_file = st.file_uploader("Cargar imagen", type=["jpg", "jpeg", "png"])
     #Carga el modelo
-    model = load_model('/workspaces/LungsFPruebaStreamlit/models/modelo_softmax.keras')
+    model = load_model('models/modelo_softmax.keras')
 
     if uploaded_file is not None:
 
