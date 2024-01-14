@@ -24,8 +24,8 @@ def main():
 
         #Augmenta el brillo y el contraste de la imagen añadida
         # Convert image to RGB mode if not already in RGB
-        if uploaded_file.mode != "RGB":
-            uploaded_file = uploaded_file.convert("RGB")
+        #if uploaded_file.mode != "RGB":
+            #uploaded_file = uploaded_file.convert("RGB")
 
         image = Image.open(uploaded_file)
         image = ImageEnhance.Brightness(image).enhance(0.7)
