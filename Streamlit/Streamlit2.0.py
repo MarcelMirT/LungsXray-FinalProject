@@ -26,12 +26,13 @@ def main():
     st.write('**Por favor tenga sus radiografias a mano (en el ordenador)**')
     
     uploaded_file = st.file_uploader("Cargar imagen", type=["jpg", "jpeg", "png"])
-    
+    /workspaces/LungsFPruebaStreamlit/Modelos_binarios/normal
     #Carga el modelo
-    model_covid = load_model('/LungsFPruebaStreamlit/Modelos_binarios/covid')
-    model_sano = load_model('/LungsFPruebaStreamlit/Modelos_binarios/normal')
-    model_pneumonia = load_model('/LungsFPruebaStreamlit/Modelos_binarios/pneumonia')
-    model_tuberculosis = load_model('/LungsFPruebaStreamlit/Modelos_binarios/tuberculosis')
+    
+    model_covid = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/covid')
+    model_sano = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/normal')
+    model_pneumonia = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/pneumonia')
+    model_tuberculosis = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/tuberculosis')
     if uploaded_file is not None:
         #Augmenta el brillo y el contraste de la imagen añadida
         # Convert image to RGB mode if not already in RGB

@@ -18,3 +18,4 @@ scikit-learn
 streamlit_extras
 keras
 tensorflow
+tensorflow.keras.models
