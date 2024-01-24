@@ -32,9 +32,7 @@ def main():
     model_sano = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/normal')
     model_pneumonia = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/pneumonia')
     model_tuberculosis = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/tuberculosis')
-
     if uploaded_file is not None:
-
         #Augmenta el brillo y el contraste de la imagen añadida
         # Convert image to RGB mode if not already in RGB
        #if uploaded_file.mode != "RGB":
