@@ -7,11 +7,11 @@ from tensorflow.keras.models import load_model
 
 def predict_imagen(imagen):
     imagen = imagen.reshape((1, 150, 150, 3))
-    model_covid = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/covid')
-    model_sano = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/normal')
-    model_pneumonia = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/pneumonia')
-    model_tuberculosis = load_model('/workspaces/LungsFPruebaStreamlit/Modelos_binarios/tuberculosis')
-    
+    model_covid = load_model('Modelos_binarios/covid')
+    model_sano = load_model('Modelos_binarios/normal')
+    model_pneumonia = load_model('Modelos_binarios/pneumonia')
+    model_tuberculosis = load_model('Modelos_binarios/tuberculosis')
+
     pred_covid = model_covid.predict(imagen)[0][0]
     pred_sano = model_sano.predict(imagen)[0][0]
     pred_pneumonia = model_pneumonia.predict(imagen)[0][0]
