@@ -34,7 +34,7 @@ def predict_imagen(imagen):
     return predictions
 
 def main():
-    st.markdown("<h1 style='text-align: center; color: black; font-size: 40px;'>Servicio de Neumología de 4geeks</h1>", unsafe_allow_html=True)
+    st.markdown("Servicio de Neumología de 4geeks")
     st.write('**Por favor tenga sus radiografias a mano (en el ordenador)**')
     st.write('**Las radigrafías deben de ser frontales**')
 
