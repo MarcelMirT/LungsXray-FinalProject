@@ -16,6 +16,14 @@ def predict_imagen(imagen):
     pred_sano = model_sano.predict(imagen)[0][0]
     pred_pneumonia = model_pneumonia.predict(imagen)[0][0]
     pred_tuberculosis = model_tuberculosis.predict(imagen)[0][0]
+
+    #Invierte las probabilidades
+
+    pred_covid = 1 - pred_covid
+    pred_sano = 1 - pred_sano
+    pred_pneumonia = 1 - pred_pneumonia
+    pred_tuberculosis = 1 - pred_tuberculosis
+
     # Crea un diccionario de predicciones
     predictions = {
         'COVID': pred_covid,
@@ -23,8 +31,7 @@ def predict_imagen(imagen):
         'PNEUMONIA': pred_pneumonia,
         'TUBERCULOSIS': pred_tuberculosis
     }
-    closest_to_zero = min(predictions, key=predictions.get) # Selecciona la categoría con el resultado más cercano a 0
-    return closest_to_zero
+    return predictions
 
 def main():
     st.markdown("<h1 style='text-align: center; color: black; font-size: 40px;'>Servicio de Neumología de 4geeks</h1>", unsafe_allow_html=True)
@@ -55,10 +62,20 @@ def main():
             if st.button('Realizar Predicción de la categoría de la imagen'):
                 pred = predict_imagen(image)
 
-                st.success('Éxito al realizar la predicción!')
-                st.write('La categoría predicha para la imagen:')
-                st.write(pred)
-                st.write('Por favor contraste los resultados con un profesional')
+                # Ordena las predicciones por su valor de confianza
+                sorted_predictions = sorted(predictions.items(), key=lambda x: x[1], reverse=True)
+                top_prediction, top_confidence = sorted_predictions[0]
+                second_prediction, second_confidence = sorted_predictions[1]
+                # Verifica si la mejor predicción tiene una confianza >= 90%
+                if top_confidence >= 0.9:
+                    st.success(‘Éxito al realizar la predicción!‘)
+                    st.write(f’La categoría predicha para la imagen es **{top_prediction}** con una confianza del {top_confidence * 100:.2f}%.’)
+                    st.write(‘Por favor contraste los resultados con un profesional’)
+                else:
+                    st.warning(‘Predicciones múltiples debido a confianza baja:‘)
+                    st.write(f'1. **{top_prediction}**: {top_confidence * 100:.2f}%‘)
+                    st.write(f'2. **{second_prediction}**: {second_confidence * 100:.2f}%’)
+                    st.write(‘Por favor contraste los resultados con un profesional’)
     
 if __name__ == "__main__":
     main()
