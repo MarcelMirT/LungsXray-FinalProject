@@ -61,7 +61,7 @@ def main():
             image = np.array(image) / 255.0
 
             if st.button('Realizar Predicción de la categoría de la imagen'):
-                pred = predict_imagen(image)
+                predictions = predict_imagen(image)
 
                 # Ordena las predicciones por su valor de confianza
                 sorted_predictions = sorted(predictions.items(), key=lambda x: x[1], reverse=True)
