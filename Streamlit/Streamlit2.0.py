@@ -36,7 +36,8 @@ def predict_imagen(imagen):
 def main():
     st.markdown("<h1 style='text-align: center; color: black; font-size: 40px;'>Servicio de Neumología de 4geeks</h1>", unsafe_allow_html=True)
     st.write('**Por favor tenga sus radiografias a mano (en el ordenador)**')
-    
+    st.write('**Las radigrafías deben de ser frontales**')
+
     uploaded_file = st.file_uploader("Cargar imagen", type=["jpg", "jpeg", "png"])
     #Carga el modelo
     
