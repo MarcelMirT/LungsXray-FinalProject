@@ -69,14 +69,14 @@ def main():
                 second_prediction, second_confidence = sorted_predictions[1]
                 # Verifica si la mejor predicción tiene una confianza >= 90%
                 if top_confidence >= 0.9:
-                    st.success(‘Éxito al realizar la predicción!‘)
-                    st.write(f’La categoría predicha para la imagen es **{top_prediction}** con una confianza del {top_confidence * 100:.2f}%.’)
-                    st.write(‘Por favor contraste los resultados con un profesional’)
+                    st.success('Éxito al realizar la predicción!')
+                    st.write(f'La categoría predicha para la imagen es **{top_prediction}** con una confianza del {top_confidence * 100:.2f}%.')
+                    st.write('Por favor contraste los resultados con un profesional')
                 else:
-                    st.warning(‘Predicciones múltiples debido a confianza baja:‘)
-                    st.write(f'1. **{top_prediction}**: {top_confidence * 100:.2f}%‘)
-                    st.write(f'2. **{second_prediction}**: {second_confidence * 100:.2f}%’)
-                    st.write(‘Por favor contraste los resultados con un profesional’)
+                    st.warning('Predicciones múltiples debido a confianza baja:')
+                    st.write(f'1. **{top_prediction}**: {top_confidence * 100:.2f}%')
+                    st.write(f'2. **{second_prediction}**: {second_confidence * 100:.2f}%')
+                    st.write('Por favor contraste los resultados con un profesional')
     
 if __name__ == "__main__":
     main()
